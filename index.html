@@ -1,0 +1,442 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pisang Nugget - Kelompok 1</title>
+    <!-- Menggunakan Font Google untuk kesan Profesional -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        /* ===== RESET & VARIABEL WARNA ===== */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --gold: #D4AF37;
+            --gold-light: #F3E5AB;
+            --dark-brown: #3E2723;
+            --light-brown: #5D4037;
+            --bg-color: #FAFAFA;
+            --card-bg: #FFFFFF;
+            --text-main: #2C3E50;
+            --text-muted: #7F8C8D;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+            --transition: all 0.4s ease;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+
+        /* ===== ANIMASI ===== */
+        @keyframes fadeUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ===== NAVBAR PROFESIONAL ===== */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 50px;
+            background: rgba(255, 255, 255, 0.95);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px rgba(0,0,0,0.05);
+        }
+        
+        .navbar .brand {
+            font-weight: 700;
+            font-size: 1.2rem;
+            color: var(--dark-brown);
+            letter-spacing: 1px;
+        }
+
+        .navbar .brand span {
+            color: var(--gold);
+        }
+
+        /* ===== HEADER (HERO SECTION) ===== */
+        .hero {
+            background-color: var(--dark-brown);
+            background-image: linear-gradient(rgba(62, 39, 35, 0.85), rgba(62, 39, 35, 0.85)), url('pisang1.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 120px 20px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .hero h1 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+            animation: fadeUp 0.8s ease both;
+        }
+
+        .hero p {
+            font-size: clamp(1rem, 2vw, 1.2rem);
+            font-weight: 300;
+            max-width: 700px;
+            margin: 0 auto;
+            opacity: 0.9;
+            animation: fadeUp 1s ease both;
+        }
+
+        /* ===== SECTION UMUM ===== */
+        .section-container {
+            max-width: 1100px;
+            margin: 80px auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+            color: var(--dark-brown);
+            font-weight: 600;
+            position: relative;
+            display: inline-block;
+            padding-bottom: 15px;
+        }
+
+        .section-title h2::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 50px;
+            height: 3px;
+            background-color: var(--gold);
+        }
+
+        /* ===== DESKRIPSI PRODUK ===== */
+        .deskripsi-box {
+            background: var(--card-bg);
+            padding: 50px 40px;
+            border-radius: 12px;
+            box-shadow: var(--shadow);
+            text-align: center;
+            max-width: 900px;
+            margin: 0 auto;
+            border-top: 5px solid var(--gold);
+        }
+
+        .deskripsi-box p {
+            color: var(--text-muted);
+            font-size: 1.05rem;
+        }
+
+        /* ===== GALERI PRODUK (DOKUMENTASI) ===== */
+        .produk-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 40px;
+        }
+
+        .produk-card {
+            background: var(--card-bg);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            cursor: pointer;
+        }
+
+        .produk-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.12);
+        }
+
+        .produk-card img {
+            width: 100%;
+            height: 300px;
+            object-fit: cover;
+            transition: var(--transition);
+        }
+
+        .produk-card:hover img {
+            transform: scale(1.05);
+        }
+
+        .produk-info {
+            padding: 25px;
+            border-bottom: 1px solid #eee;
+        }
+
+        .produk-info h3 {
+            color: var(--dark-brown);
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+
+        .produk-info p {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+
+        /* ===== TIM PRODUKSI ===== */
+        .tim-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 25px;
+        }
+
+        .tim-card {
+            background: var(--card-bg);
+            padding: 30px 20px;
+            border-radius: 12px;
+            text-align: center;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.04);
+            transition: var(--transition);
+            border: 1px solid #f0f0f0;
+        }
+
+        .tim-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--gold);
+            box-shadow: var(--shadow);
+        }
+
+        .tim-avatar {
+            width: 70px;
+            height: 70px;
+            background: var(--gold-light);
+            color: var(--dark-brown);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 15px;
+            transition: var(--transition);
+        }
+
+        .tim-card:hover .tim-avatar {
+            background: var(--gold);
+            color: #fff;
+        }
+
+        .tim-card h4 {
+            font-size: 1.05rem;
+            color: var(--text-main);
+            font-weight: 600;
+            margin-bottom: 5px;
+        }
+
+        .tim-card span {
+            font-size: 0.8rem;
+            color: var(--gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* ===== FOOTER ===== */
+        footer {
+            background: var(--dark-brown);
+            color: rgba(255,255,255,0.7);
+            text-align: center;
+            padding: 30px 20px;
+            font-size: 0.9rem;
+            font-weight: 300;
+        }
+
+        footer span {
+            color: var(--gold);
+            font-weight: 600;
+        }
+
+        /* ===== LIGHTBOX ===== */
+        .lightbox {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, 0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            padding: 20px;
+        }
+
+        .lightbox.active { display: flex; }
+
+        .lightbox-content { position: relative; max-width: 800px; width: 100%; }
+
+        .lightbox img {
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -40px;
+            right: 0;
+            background: none;
+            border: none;
+            color: #fff;
+            font-size: 2rem;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        .lightbox-close:hover { color: var(--gold); }
+
+        /* ===== RESPONSIVE ===== */
+        @media (max-width: 768px) {
+            .navbar { padding: 15px 20px; }
+            .hero { padding: 80px 20px; }
+            .deskripsi-box { padding: 30px 20px; }
+            .produk-card img { height: 250px; }
+            .tim-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar">
+        <div class="brand">KELOMPOK<span>1</span></div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header class="hero">
+        <h1>Pisang Nugget</h1>
+        <p>Inovasi camilan sehat dan lezat berbahan dasar pisang pilihan, dipadukan dengan balutan crispy yang sempurna.</p>
+    </header>
+
+    <!-- DESKRIPSI PRODUK -->
+    <section class="section-container">
+        <div class="section-title">
+            <h2>Profil Produk</h2>
+        </div>
+        <div class="deskripsi-box">
+            <p>
+                Pisang nugget adalah inovasi camilan modern yang memadukan cita rasa manis alami dari pisang pilihan dengan tekstur renyah di bagian luar. Dibuat dengan standar kebersihan dan kualitas bahan terbaik, produk ini sangat cocok disajikan sebagai hidangan penutup, teman santai, maupun peluang usaha kuliner. Nikmati sensasi lembut di dalam dan crispy di luar, disajikan hangat dengan aneka topping favorit.
+            </p>
+        </div>
+    </section>
+
+    <!-- DOKUMENTASI PRODUK -->
+    <section class="section-container">
+        <div class="section-title">
+            <h2>Dokumentasi Produk</h2>
+        </div>
+        <div class="produk-grid">
+            <div class="produk-card" data-img="pisang1.jpg">
+                <img src="pisang1.jpg" alt="Pisang Nugget Original">
+                <div class="produk-info">
+                    <h3>Pisang Nugget Original</h3>
+                    <p>Balutan tepung panir pilihan dengan tekstur renyah maksimal, mempertahankan rasa manis asli dari pisang.</p>
+                </div>
+            </div>
+            <div class="produk-card" data-img="pisang2.jpg">
+                <img src="pisang2.jpg" alt="Pisang Nugget Premium">
+                <div class="produk-info">
+                    <h3>Pisang Nugget Premium</h3>
+                    <p>Disajikan dengan topping cokelat premium, keju parut, dan susu kental manis. Pilihan sempurna untuk pencinta rasa manis.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- TIM PRODUKSI -->
+    <section class="section-container">
+        <div class="section-title">
+            <h2>Tim Produksi</h2>
+        </div>
+        <div class="tim-grid" id="timGrid"></div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <p>&copy; 2025 <span>Kelompok 1</span>. All Rights Reserved.</p>
+    </footer>
+
+    <!-- LIGHTBOX -->
+    <div class="lightbox" id="lightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="closeBtn">&times;</button>
+            <img src="" alt="Preview" id="lightboxImg">
+        </div>
+    </div>
+
+    <script>
+        // Data Anggota
+        const anggota = [
+            "Muh Farhan", "Nur Fadli", "Ipnul Pais", "Wira Aditya", 
+            "Iqbal Y", "Rifky Anugrah", "Safriadi", "Nur Iqsan"
+        ];
+
+        const timGrid = document.getElementById('timGrid');
+
+        // Fungsi Inisial Nama
+        function getInitials(name) {
+            const parts = name.trim().split(/\s+/);
+            if (parts.length === 1) return parts[0].substring(0, 2).toUpperCase();
+            return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase();
+        }
+
+        // Render Tim
+        anggota.forEach((nama) => {
+            const card = document.createElement('div');
+            card.className = 'tim-card';
+            
+            card.innerHTML = `
+                <div class="tim-avatar">${getInitials(nama)}</div>
+                <h4>${nama}</h4>
+                <span>Tim Produksi</span>
+            `;
+            
+            timGrid.appendChild(card);
+        });
+
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightboxImg');
+        const closeBtn = document.getElementById('closeBtn');
+        const produkCards = document.querySelectorAll('.produk-card');
+
+        produkCards.forEach(card => {
+            card.addEventListener('click', function() {
+                const imgSrc = this.getAttribute('data-img');
+                lightboxImg.src = imgSrc;
+                lightbox.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            });
+        });
+
+        closeBtn.addEventListener('click', () => {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        });
+
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                lightbox.classList.remove('active');
+                document.body.style.overflow = '';
+            }
+        });
+    </script>
+</body>
+</html>
